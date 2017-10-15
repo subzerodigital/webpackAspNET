@@ -8,11 +8,14 @@
   <script type="text/javascript">
     window.initialData = <%- JSON.stringify(initialData) -%>
   </script>
+	<link rel="stylesheet" href="scss/app.css" />
 </head>
 <body>
+  <h1>From mother template</h1>
   <div id="root"><%- initialMarkup -%></div>
 
   <script src="/vendor.js?version=1" charset="utf-8"></script>
   <script src="/app.js?version=1" charset="utf-8"></script>
+
 </body>
 </html>

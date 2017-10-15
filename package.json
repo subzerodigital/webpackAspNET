@@ -8,17 +8,26 @@
   "license": "MIT",
   "scripts": {
     "dev": "NODE_PATH=./lib pm2 start lib/server.js --watch --interpreter babel-node --name appDev",
+    "startServer": "babel-node lib/server.js",
     "webpack": "webpack -wd",
     "test": "jest --watch",
     "verify-tests": "jest --coverage",
-    "build-webpack": "webpack -p",
+    "build": "webpack -p",
+    "webpack-server": "webpack-dev-server",
     "build-node": "babel lib -d build --copy-files",
     "start-prod": "NODE_ENV=production NODE_PATH=./build pm2 start build/server.js -i max --name appProd"
   },
   "babel": {
     "presets": [
       "react",
-      ["env", { "targets": { "node": "current" } }]
+      [
+        "env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
     ],
     "plugins": [
       "transform-class-properties",
@@ -31,7 +40,8 @@
     "eslint": "^4.1.0",
     "eslint-plugin-react": "^7.1.0",
     "jest": "^20.0.4",
-    "react-test-renderer": "^15.6.1"
+    "react-test-renderer": "^15.6.1",
+    "webpack-dev-server": "^2.9.1"
   },
   "dependencies": {
     "axios": "^0.16.2",
